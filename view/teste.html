@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+
+        window.onload = function(){
+
+            var divConteudo = document.getElementById('divConteudo');
+            var ajax = new XMLHttpRequest();
+            ajax.onreadystatechange = function(){
+                if(ajax.readyState==4){
+
+                    // 0 conexao nao iniciada
+                    // 1 inicio de comunicacao
+                    // 2 inicio de requisicao
+                    // 3 servidor em processo de envio de reposta
+                    // 4 resposta ja enviada pelo servidor
+
+                    // 404 documento nao encontrado
+                    // 200 requisicao de documento bem sucedido
+
+                    divConteudo.appendChild(document.createTextNode(ajax.responseText));
+                    alert('resquisicao chegou');
+                    alert(ajax.statusText)
+                    alert(ajax.responseText);
+                }
+            } //END ajax.onreadstatechange
+            ajax.open('POST','teste.txt');
+            ajax.send(null);
+            //send(parametro1=valor1&parametro2=valor2
+            return false;
+
+            //ajax.readyState valores
+
+
+
+        };// END window.onLoad
+
+
+    </script>
+
+
+
+
+</head>
+<body>
+<div id="divConteudo">
+xxx
+
+
+</div>
+
+</body>
+</html>

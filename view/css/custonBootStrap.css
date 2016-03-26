@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+
+.btn, .panel {
+    border-radius: 0px;
+	
+}
+
+.btn-danger{
+	color:white;
+	text-shadow:white;
+	background-color:#900;
+	border-color: #900 #900 #900;
+}
+
+.panel-danger > .panel-heading {
+  color:white;
+	text-shadow:white;
+	background-color:#900;
+	border-color: #900 #900 #900;
+}
+
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+
+/*.btn-primary {
+    color:#ffffff;
+    text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color:#007cc5;
+    background-image:-moz-linear-gradient(top, #01a4d9, #0193c5);
+    background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#01a4d9),  to(#0193c5));
+    background-image:-webkit-linear-gradient(top, #01a4d9, #0193c5);
+    background-image:-o-linear-gradient(top, #01a4d9, #0193c5);
+    background-image:linear-gradient(to bottom, #01a4d9, #0193c5);
+    background-repeat:repeat-x;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0096c5', endColorstr='#ff0054c5', GradientType=0);
+    border-color:#0193c5 #0193c5 #003479;
+    border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    *background-color:#0193c5;filter:progid:DXImageTransform.Microsoft.gradient(enabled = false);
+ }
+
+.btn-primary:hover,.btn-primary:active,.btn-primary.active,.btn-primary.disabled,.btn-primary[disabled] {
+    color:#ffffff;
+    background-color:#0193c5;
+    *background-color:#0049ac;
+ }
+
+.btn-primary:active,.btn-primary.active {
+    background-color:#003f92 \9;
+ }
+
+*/
