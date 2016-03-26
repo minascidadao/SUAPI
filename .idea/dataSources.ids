@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - suapi@localhost" uuid="c4f1158f-1a31-4ad6-a8f0-6e8dba0cf5bb">
+    <database-info product="MySQL" version="5.6.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.2">
+      <schema id="1" name="suapi"/>
+      <table id="2" parent="1" name="filiais"/>
+      <table id="3" parent="1" name="impressoestipos"/>
+      <table id="4" parent="1" name="parentescos"/>
+      <table id="5" parent="1" name="presos"/>
+      <table id="6" parent="1" name="solicitacoes"/>
+      <table id="7" parent="1" name="solicitacoestipos"/>
+      <table id="8" parent="1" name="solicitantes"/>
+      <table id="9" parent="1" name="solicitantes_presos"/>
+      <table id="10" parent="1" name="unidadesprisionais"/>
+      <table id="11" parent="1" name="usuarios"/>
+      <table id="12" parent="1" name="visitastipos"/>
+      <view id="13" parent="1" name="vwpresos"/>
+      <view id="14" parent="1" name="vwsolicitacoes"/>
+      <view id="15" parent="1" name="viewpresos"/>
+      <view id="16" parent="1" name="viewsolicitacoes"/>
+      <view id="17" parent="1" name="viewsolicitantes_presos"/>
+      <routine id="18" parent="1" name="spLogin">
+        <routine-kind>PROCEDURE</routine-kind>
+      </routine>
+      <routine id="19" parent="1" name="spSolicitacoesEntregar">
+        <routine-kind>PROCEDURE</routine-kind>
+      </routine>
+      <routine id="20" parent="1" name="spSolicitacoesLocalizar">
+        <routine-kind>PROCEDURE</routine-kind>
+      </routine>
+      <column id="21" parent="2" name="filialID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="22" parent="2" name="filial">
+        <mandatory>1</mandatory>
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="23" parent="2" name="endereco">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="24" parent="2" name="bairro">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="25" parent="2" name="cidade">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="26" parent="2" name="uf">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="27" parent="2" name="telefone">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="28" parent="2" name="PRIMARY">
+        <columns>filialID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="29" parent="3" name="impressaoTipoID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="30" parent="3" name="impressaoTipo">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="31" parent="3" name="PRIMARY">
+        <columns>impressaoTipoID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="32" parent="4" name="parentescoID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="33" parent="4" name="parentesco">
+        <mandatory>1</mandatory>
+        <data-type>varchar(90)</data-type>
+      </column>
+      <key id="34" parent="4" name="PRIMARY">
+        <columns>parentescoID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="35" parent="5" name="presoID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="36" parent="5" name="preso">
+        <mandatory>1</mandatory>
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="37" parent="5" name="infopen">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="38" parent="5" name="unidadePrisionalID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="39" parent="5" name="PRIMARY">
+        <columns>presoID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="40" parent="5" name="fk_presos_unidadesPrisionais1">
+        <columns>unidadePrisionalID</columns>
+        <ref-key>unidadesprisionais.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="41" parent="6" name="solicitacaoID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="42" parent="6" name="solicitacaoTipoID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="43" parent="6" name="solicitanteID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="44" parent="6" name="presoID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="45" parent="6" name="unidadePrisionalID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="46" parent="6" name="dataSolicitacao">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="47" parent="6" name="entregue">
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="48" parent="6" name="entreguePara">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="49" parent="6" name="dataEntrega">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="50" parent="6" name="arprovada">
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <key id="51" parent="6" name="PRIMARY">
+        <columns>solicitacaoID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="52" parent="6" name="fk_Solicitacoes_presos1">
+        <columns>presoID</columns>
+        <ref-key>presos.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="53" parent="6" name="fk_Solicitacoes_SolicitacoesTipos">
+        <columns>solicitacaoTipoID</columns>
+        <ref-key>solicitacoestipos.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="54" parent="6" name="fk_Solicitacoes_solicitantes1">
+        <columns>solicitanteID</columns>
+        <ref-key>solicitantes.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="55" parent="6" name="fk_Solicitacoes_unidadesPrisionais1">
+        <columns>unidadePrisionalID</columns>
+        <ref-key>unidadesprisionais.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="56" parent="7" name="solicitacaoTipoID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="57" parent="7" name="solicitacaoTipo">
+        <mandatory>1</mandatory>
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="58" parent="7" name="confirmarEntrega">
+        <comment>exibir tela de entrega de documento</comment>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="59" parent="7" name="ativo">
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="60" parent="7" name="impressaoTipoID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <key id="61" parent="7" name="PRIMARY">
+        <columns>solicitacaoTipoID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="62" parent="7" name="fk_solicitacoesTipos_impressoesTipos1">
+        <columns>impressaoTipoID</columns>
+        <ref-key>impressoestipos.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="63" parent="8" name="solicitanteID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="64" parent="8" name="solicitante">
+        <mandatory>1</mandatory>
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="65" parent="8" name="rg">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="66" parent="8" name="PRIMARY">
+        <columns>solicitanteID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="67" parent="9" name="solicitanteID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="68" parent="9" name="presoID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="69" parent="9" name="parentescoID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="70" parent="9" name="PRIMARY">
+        <columns>solicitanteID
+presoID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="71" parent="9" name="fk_solicitantes_presos_parentescos1">
+        <columns>parentescoID</columns>
+        <ref-key>parentescos.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="72" parent="9" name="fk_solicitantes_presos_presos1">
+        <columns>presoID</columns>
+        <ref-key>presos.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="73" parent="9" name="fk_solicitantes_presos_solicitantes1">
+        <columns>solicitanteID</columns>
+        <ref-key>solicitantes.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="74" parent="10" name="unidadePrisionalID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="75" parent="10" name="unidadePrisional">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="76" parent="10" name="endereco">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="77" parent="10" name="bairro">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="78" parent="10" name="cidade">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="79" parent="10" name="uf">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="80" parent="10" name="telefone">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="81" parent="10" name="PRIMARY">
+        <columns>unidadePrisionalID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="82" parent="11" name="usuarioID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="83" parent="11" name="usuario">
+        <mandatory>1</mandatory>
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="84" parent="11" name="login">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="85" parent="11" name="senha">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="86" parent="11" name="email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="87" parent="11" name="ativo">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <column id="88" parent="11" name="dataCadastro">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="89" parent="11" name="administrador">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="90" parent="11" name="backOffice">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="91" parent="11" name="PRIMARY">
+        <columns>usuarioID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="92" parent="12" name="visitaTipoID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="93" parent="12" name="visitaTipo">
+        <comment>social, assistida, intima</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(90)</data-type>
+      </column>
+      <key id="94" parent="12" name="PRIMARY">
+        <columns>visitaTipoID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="95" parent="13" name="presoID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="96" parent="13" name="preso">
+        <mandatory>1</mandatory>
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="97" parent="13" name="infopen">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="98" parent="13" name="unidadePrisionalID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="99" parent="13" name="unidadePrisional">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="100" parent="14" name="solicitacaoID">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="101" parent="14" name="solicitacaoTipoID">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="102" parent="14" name="solicitacaoTipo">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="103" parent="14" name="impressaoTipoID">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <column id="104" parent="14" name="impressaoTipo">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="105" parent="14" name="solicitanteID">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="106" parent="14" name="solicitante">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="107" parent="14" name="presoID">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="108" parent="14" name="preso">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="109" parent="14" name="infopen">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="110" parent="14" name="unidadePrisionalID">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="111" parent="14" name="unidadePrisional">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="112" parent="14" name="dataSolicitacao">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="113" parent="14" name="entregue">
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="114" parent="14" name="entreguePara">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="115" parent="14" name="dataEntrega">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="116" parent="14" name="arprovada">
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="117" parent="15" name="presoID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="118" parent="15" name="preso">
+        <mandatory>1</mandatory>
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="119" parent="15" name="infopen">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="120" parent="15" name="unidadePrisionalID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="121" parent="15" name="unidadePrisional">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="122" parent="16" name="solicitacaoID">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="123" parent="16" name="solicitacaoTipoID">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="124" parent="16" name="solicitacaoTipo">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="125" parent="16" name="impressaoTipoID">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <column id="126" parent="16" name="impressaoTipo">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="127" parent="16" name="solicitanteID">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="128" parent="16" name="solicitante">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="129" parent="16" name="presoID">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="130" parent="16" name="preso">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="131" parent="16" name="infopen">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="132" parent="16" name="unidadePrisionalID">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="133" parent="16" name="unidadePrisional">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="134" parent="16" name="dataSolicitacao">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="135" parent="16" name="entregue">
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="136" parent="16" name="entreguePara">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="137" parent="16" name="dataEntrega">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="138" parent="16" name="arprovada">
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="139" parent="17" name="solicitanteID">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="140" parent="17" name="solicitante">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="141" parent="17" name="presoID">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="142" parent="17" name="preso">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <column id="143" parent="17" name="parentescoID">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="144" parent="17" name="parentesco">
+        <data-type>varchar(90)</data-type>
+      </column>
+      <argument id="145" parent="18" name="_login">
+        <direction>IN</direction>
+        <data-type>varchar(45)</data-type>
+      </argument>
+      <argument id="146" parent="18" name="_senha">
+        <direction>IN</direction>
+        <data-type>varchar(45)</data-type>
+      </argument>
+      <argument id="147" parent="19" name="_solicitacaoID">
+        <direction>IN</direction>
+        <data-type>int(11)</data-type>
+      </argument>
+      <argument id="148" parent="19" name="_entreguePara">
+        <direction>IN</direction>
+        <data-type>varchar(90)</data-type>
+      </argument>
+      <argument id="149" parent="20" name="_localizar">
+        <direction>IN</direction>
+        <data-type>varchar(90)</data-type>
+      </argument>
+    </database-model>
+  </data-source>
+</component>
